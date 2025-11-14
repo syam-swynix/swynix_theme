@@ -1,0 +1,11 @@
+[
+    {
+        "name": "SwynixERP",
+        "title": "SwynixERP",
+        "icon": "tool",
+        "parent_page": "",
+        "content": "[{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"SwynixERP\",\"link_to\":\"erpnext\",\"icon\":\"tool\",\"color\":\"#FFC107\"}}]",
+        "public": 1,
+        "extends": "ERPNext"
+    }
+]

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swynix Login</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+        .for-login { background: transparent; min-height: 100vh; display: flex; position: fixed; width: 100%; }
+        .logo-section { width: 50%; background: #1a2332; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .logo-container { z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .logo { width: 200px; }
+        .logo img { width: 100%; }
+        .swynix-text { font-size: 48px; font-weight: 700; color: #FFC107; text-transform: uppercase; letter-spacing: 2px; }
+        .waves { position: absolute; bottom: 0; left: 0; width: 100%; height: 300px; z-index: 1; }
+        .wave { position: absolute; bottom: 0; width: 100%; }
+        .wave:nth-child(1) { opacity: 0.2; animation: wave1 8s ease-in-out infinite; }
+        .wave:nth-child(2) { opacity: 0.3; animation: wave2 10s ease-in-out infinite; }
+        .wave:nth-child(3) { opacity: 0.5; animation: wave3 12s ease-in-out infinite; }
+        @keyframes wave1 { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-25px) translateY(-10px); } }
+        @keyframes wave2 { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(25px) translateY(-15px); } }
+        @keyframes wave3 { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-20px) translateY(-20px); } }
+        .login-content { width: 50%; background: #fff; display: flex; align-items: center; justify-content: center; padding: 80px 100px; }
+        .page-card { width: 100%; max-width: 500px; }
+        .page-card-head { margin-bottom: 40px; }
+        .page-card-head h4 { font-size: 48px; font-weight: 700; color: #000; margin-bottom: 15px; }
+        .page-card-head p { font-size: 16px; color: #666; }
+        #error-message { display: none; background: #ffebee; color: #c62828; padding: 12px; border-radius: 8px; margin-bottom: 20px; font-size: 14px; }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { font-size: 15px; font-weight: 500; color: #000; margin-bottom: 10px; display: block; }
+        .form-control { height: 52px; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 16px; font-size: 15px; width: 100%; transition: all 0.3s ease; }
+        .form-control:focus { border-color: #FFC107; box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.1); outline: none; }
+        .password-field { position: relative; }
+        #login_password { padding-right: 80px; }
+        .toggle-password { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #666; font-size: 14px; background: transparent; border: none; padding: 5px 10px; }
+        .toggle-password:hover { color: #FFC107; }
+        .remember-forgot { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+        .remember-me { display: flex; align-items: center; gap: 8px; }
+        .remember-me input { width: 18px; height: 18px; }
+        .remember-me span { font-size: 14px; color: #000; }
+        .forgot-link { color: #666; font-size: 14px; text-decoration: none; }
+        .forgot-link:hover { color: #FFC107; }
+        .btn-primary { width: 100%; height: 56px; background: #0a1628; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; color: white; cursor: pointer; transition: all 0.3s ease; }
+        .btn-primary:hover { background: #1a2942; transform: translateY(-2px); box-shadow: 0 8px 16px rgba(10, 22, 40, 0.3); }
+        .btn-primary:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+        @media (max-width: 768px) {
+            .for-login { flex-direction: column; position: relative; height: auto; }
+            .logo-section, .login-content { width: 100%; }
+            .logo-section { min-height: 200px; }
+            .logo { width: 150px; }
+            .swynix-text { font-size: 36px; }
+            .login-content { padding: 40px 30px; }
+            .page-card-head h4 { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="for-login">
+        <div class="logo-section">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="/assets/swynix_theme/images/swynix-logo.png" alt="Swynix Logo" onerror="this.style.display='none'">
+                </div>
+                <div class="swynix-text">SWYNIX</div>
+            </div>
+            <div class="waves">
+                <svg class="wave" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                    <path d="M0,100 C300,150 600,50 1200,100 L1200,200 L0,200 Z" fill="#FFC107" fill-opacity="0.3"/>
+                </svg>
+                <svg class="wave" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                    <path d="M0,80 C400,120 800,40 1200,80 L1200,200 L0,200 Z" fill="#FFC107" fill-opacity="0.4"/>
+                </svg>
+                <svg class="wave" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                    <path d="M0,60 C350,100 850,30 1200,70 L1200,200 L0,200 Z" fill="#FFC107" fill-opacity="0.5"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="login-content">
+            <div class="page-card">
+                <div class="page-card-head">
+                    <h4>Login</h4>
+                    <p>Welcome back! Please login to your account.</p>
+                </div>
+
+                <div id="error-message"></div>
+
+                <form id="login-form" method="POST" action="/api/method/login">
+                    <div class="form-group">
+                        <label for="login_email">Email</label>
+                        <input type="text" id="login_email" name="usr" class="form-control" placeholder="username@example.com" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login_password">Password</label>
+                        <div class="password-field">
+                            <input type="password" id="login_password" name="pwd" class="form-control" placeholder="•••••••••" required>
+                            <button type="button" class="toggle-password" onclick="togglePassword()">Show</button>
+                        </div>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label class="remember-me">
+                            <input type="checkbox" id="remember_me">
+                            <span>Remember Me</span>
+                        </label>
+                        <a href="/update-password" class="forgot-link">Forgot password?</a>
+                    </div>
+
+                    <button class="btn-primary" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const field = document.getElementById('login_password');
+            const btn = document.querySelector('.toggle-password');
+            if (field.type === 'password') {
+                field.type = 'text';
+                btn.textContent = 'Hide';
+            } else {
+                field.type = 'password';
+                btn.textContent = 'Show';
+            }
+        }
+
+        function showError(msg) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = msg;
+            errorDiv.style.display = 'block';
+            setTimeout(() => { errorDiv.style.display = 'none'; }, 5000);
+        }
+
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const usr = document.getElementById('login_email').value.trim();
+            const pwd = document.getElementById('login_password').value;
+            const btn = document.querySelector('.btn-primary');
+            
+            if (!usr || !pwd) {
+                showError('Please enter both email and password');
+                return;
+            }
+            
+            btn.textContent = 'Logging in...';
+            btn.disabled = true;
+            
+            // Use XMLHttpRequest for better control
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/api/method/login', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.setRequestHeader('Accept', 'application/json');
+            
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+                        if (response.message === 'Logged In' || response.full_name) {
+                            window.location.href = '/app';
+                        } else {
+                            btn.textContent = 'Login';
+                            btn.disabled = false;
+                            showError('Invalid email or password');
+                        }
+                    } catch (e) {
+                        btn.textContent = 'Login';
+                        btn.disabled = false;
+                        showError('Login failed. Please try again.');
+                    }
+                } else {
+                    btn.textContent = 'Login';
+                    btn.disabled = false;
+                    showError('Invalid email or password');
+                }
+            };
+            
+            xhr.onerror = function() {
+                btn.textContent = 'Login';
+                btn.disabled = false;
+                showError('Connection error. Please try again.');
+            };
+            
+            xhr.send('usr=' + encodeURIComponent(usr) + '&pwd=' + encodeURIComponent(pwd));
+        });
+    </script>
+</body>
+</html>

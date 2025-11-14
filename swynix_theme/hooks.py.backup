@@ -1,0 +1,24 @@
+app_name = "swynix_theme"
+app_title = "Swynix Theme"
+app_publisher = "Swynix"
+app_description = "Custom theme and branding for Swynix"
+app_email = "syam@swynix.com"
+app_license = "MIT"
+# Override default login page
+website_route_rules = [
+    {"from_route": "/login", "to_route": "login"},
+]
+
+# Add your app to the build
+app_include_js = [
+    "/assets/swynix_theme/js/swynix_theme.js"
+]
+
+app_include_css = [
+    "/assets/swynix_theme/css/swynix_theme.css"
+]
+
+# Website settings
+update_website_context = [
+    "swynix_theme.utils.get_website_context"
+]

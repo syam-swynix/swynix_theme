@@ -1,0 +1,295 @@
+/* FORCE OVERRIDE - Hide default Frappe branding */
+.for-login .login-content .page-card-head .app-logo,
+.for-login .login-content .page-card-head .brand-name {
+    display: none !important;
+}
+
+/* Main container styling */
+.for-login {
+    background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%) !important;
+    min-height: 100vh !important;
+}
+
+/* Custom wavy background pattern */
+.for-login::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255, 193, 7, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 193, 7, 0.05) 0%, transparent 50%) !important;
+    pointer-events: none !important;
+}
+
+/* Split screen layout */
+.for-login .login-content {
+    display: flex !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    min-height: 100vh !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    align-items: stretch !important;
+}
+
+/* Left side - Logo section */
+.for-login .login-content .page-card:first-child {
+    display: none !important;
+}
+
+.for-login .login-content::before {
+    content: '' !important;
+    flex: 1 !important;
+    background: #0a1628 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    min-width: 50% !important;
+}
+
+/* Logo styling with PNG */
+.for-login .login-content::after {
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #0a1628 url('/assets/swynix_theme/images/swynix-logo.png') no-repeat center !important;
+    background-size: 350px auto !important;
+}
+
+/* Add decorative wave pattern */
+.for-login::after {
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 50% !important;
+    height: 300px !important;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 193, 7, 0.1) 2px,
+            rgba(255, 193, 7, 0.1) 4px
+        ) !important;
+    opacity: 0.3 !important;
+    pointer-events: none !important;
+}
+
+/* Right side - Login form */
+.for-login .page-card {
+    flex: 1 !important;
+    max-width: 600px !important;
+    background: white !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    margin-left: auto !important;
+    padding: 80px 100px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.for-login .page-card-head {
+    text-align: left !important;
+    padding: 0 !important;
+    margin-bottom: 40px !important;
+    border: none !important;
+}
+
+.for-login .page-card-head .page-card-head-title {
+    font-size: 48px !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Welcome text */
+.for-login .page-card-head::after {
+    content: 'Welcome back! Please login to your account.' !important;
+    display: block !important;
+    font-size: 16px !important;
+    color: #666 !important;
+    margin-top: 15px !important;
+    font-weight: 400 !important;
+}
+
+/* Form styling */
+.for-login .form-group {
+    margin-bottom: 25px !important;
+}
+
+.for-login .form-group label {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    color: #000 !important;
+    margin-bottom: 10px !important;
+    display: block !important;
+}
+
+.for-login .form-control {
+    height: 52px !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    width: 100% !important;
+    transition: all 0.3s ease !important;
+}
+
+.for-login .form-control:focus {
+    border-color: #FFC107 !important;
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.1) !important;
+    outline: none !important;
+}
+
+/* Password field with toggle */
+.for-login #login_password {
+    padding-right: 45px !important;
+}
+
+/* Password toggle button */
+.password-toggle {
+    position: absolute !important;
+    right: 15px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    cursor: pointer !important;
+    color: #666 !important;
+    transition: color 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 24px !important;
+    height: 24px !important;
+    z-index: 10 !important;
+}
+
+.password-toggle:hover {
+    color: #FFC107 !important;
+}
+
+.password-toggle svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+/* Remember me and forgot password */
+.for-login .page-card-body > div:has(.checkbox) {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin: 25px 0 30px 0 !important;
+}
+
+.for-login .checkbox {
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.for-login .checkbox label {
+    font-size: 14px !important;
+    color: #333 !important;
+    margin: 0 !important;
+    margin-left: 8px !important;
+    font-weight: 400 !important;
+}
+
+.for-login .page-card-body a {
+    color: #666 !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.for-login .page-card-body a:hover {
+    color: #FFC107 !important;
+}
+
+/* Login button */
+.for-login .btn-primary {
+    width: 100% !important;
+    height: 56px !important;
+    background: #0a1628 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin-top: 10px !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+}
+
+.for-login .btn-primary:hover {
+    background: #1a2942 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 16px rgba(10, 22, 40, 0.3) !important;
+}
+
+.for-login .btn-primary:active {
+    transform: translateY(0) !important;
+}
+
+/* Hide unnecessary elements */
+.for-login .page-card-head .indicator,
+.for-login .indicator-pill {
+    display: none !important;
+}
+
+/* Signup link styling */
+.for-login .page-card-body .text-muted {
+    text-align: center !important;
+    margin-top: 30px !important;
+    color: #666 !important;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .for-login .page-card {
+        padding: 60px 60px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .for-login .login-content::before,
+    .for-login .login-content::after,
+    .for-login::after {
+        display: none !important;
+    }
+    
+    .for-login .page-card {
+        max-width: 100% !important;
+        padding: 40px 30px !important;
+        margin: 0 !important;
+    }
+    
+    .for-login .page-card-head .page-card-head-title {
+        font-size: 36px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .for-login .page-card {
+        padding: 30px 20px !important;
+    }
+    
+    .for-login .page-card-head .page-card-head-title {
+        font-size: 32px !important;
+    }
+}
